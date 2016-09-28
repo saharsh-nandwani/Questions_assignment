@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="vue.js"></script>
+
+</head>
+<body>
+
+  <div  id="app" v-for="question in questions">
+    <p> Score is : {{score}}</P>
+    <h3>{{question.text}}</h3>
+    <button  v-for="option in question.options" @click="option.isCorrect? markCorrect():markWrong()">
+      {{option.text}}
+    </button>
+    </div>
+    <script>
+    new Vue({
+      el: '#app',
+      data: {
+        score:0,
+        count:0,
+        questions: [
+          {
+            text: "Who was Harambe?",
+            options: [
+              {
+                text: "God",
+                isCorrect: true
+              },
+              {
+                text: "Brother",
+                isCorrect: false
+              },
+
+              {
+                text: "Just a Gorilla",
+                isCorrect: false
+              },
+            ]
+          },
+          {
+            text: "Who is the creator of God?",
+            options: [
+              {
+                text: "Taylor Otwell",
+                isCorrect: false
+              },
+              {
+                text: "David Heinemeier Hansson",
+                isCorrect: false
+              },
+              {
+                text: "Haramabe",
+                isCorrect: true
+              },
+
+            ]
+          },
+          {
+            text: "What killed Harambe?",
+            options: [
+              {
+                text: "Humanity",
+                isCorrect: false
+              },
+              {
+                text: "A bullet ",
+                isCorrect: true
+              },
+
+              {
+                text: "The Zoo",
+                isCorrect: false
+              },
+            ]
+          },
+          {
+            text: "What loves Harambe the most?",
+            options: [
+              {
+                text: "Saharsh",
+                isCorrect: false
+              },
+              {
+                text: "Aryaman ",
+                isCorrect: true
+              },
+
+              {
+                text: "The kid who fell in the encosure",
+                isCorrect: false
+              },
+            ]
+          },
+          {
+            text: "What time is the assignment due?",
+            options: [
+              {
+                text: "7:45 PM",
+                isCorrect: false
+              },
+              {
+                text: "11:59 PM ",
+                isCorrect: false
+              },
+
+              {
+                text: "7:30 PM",
+                isCorrect: true
+              },
+            ]
+          },
+        ],
+      },
+      methods:{
+        markCorrect: function()
+        {
+          alert("You are correct")
+          this.score +=1;
+          this.count += 1;
+
+        },
+        markWrong: function()
+        {
+          alert("You are wrong :( ")
+          this.count += 1;
+
+        }
+      }
+    })
+    </script>
+  </body>
+  </html>
